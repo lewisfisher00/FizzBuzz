@@ -1,3 +1,15 @@
+def primeNumber(number):
+    prime = bool(True)
+    divisor = int(2)
+    while prime & (divisor < number):
+        if number % divisor == 0:
+            prime = False
+        else:
+            divisor = divisor + 1
+    if number == 1:
+        prime = False
+    return prime
+
 valid = bool(False)
 maxValue = 0
 while not valid:
@@ -14,31 +26,35 @@ Bag = input("Use Bang? (y/n)")
 Bon = input("Use Bong? (y/n)")
 Fez = input("Use Fezz? (y/n)")
 Rev = input("Use Reverse? (y/n)")
+Pri = input("Test prime? (y/n)")
 
 
 for number in range(1, maxValue + 1):
     specialList = []
+    #prime
+    if primeNumber(number) & (Pri == "y"):
+        specialList.append("Prime")
     #fizzbuzz
     if (number % 5 == 0) & (number % 3 == 0) & (FB == "y"):
         specialList.append("Fizz")
         specialList.append("Buzz")
     #buzz
-    elif number % 5 == 0 & (Bzz == "y"):
+    elif (number % 5 == 0) & (Bzz == "y"):
         specialList.append("Buzz")
     #fizz
-    elif number % 3 == 0 & (Fzz == "y"):
+    elif (number % 3 == 0) & (Fzz == "y"):
         specialList.append("Fizz")
     #bang - 7
-    if number % 7 == 0 & (Bag == "y"):
+    if (number % 7 == 0) & (Bag == "y"):
         if len(specialList) == 0:
             specialList = ["Bang"]
         else:
             specialList.append("Bang")
     #bong - 11
-    if number % 11 == 0 & (Bon == "y"):
+    if (number % 11 == 0) & (Bon == "y"):
         currentString = "Bong"
     #fezz - 13 - before first B***
-    if number % 13 == 0 & (Fez == "y"):
+    if (number % 13 == 0) & (Fez == "y"):
         counter = int(0)
         indexB = 0
         while counter < len(specialList):
