@@ -1,14 +1,25 @@
-for number in range(1, 101):
-    currentString = str(number)
+maxValue = int(input("Enter maximum value:"))
+for number in range(1, maxValue + 1):
+    specialList = []
     if (number % 5 == 0) & (number % 3 == 0):
-        currentString = "FizzBuzz"
+        specialList.append("Fizz")
+        specialList.append("Buzz")
     elif number % 5 == 0:
-        currentString = "Buzz"
+        specialList.append("Buzz")
     elif number % 3 == 0:
-        currentString = "Fizz"
+        specialList.append("Fizz")
     if number % 7 == 0:
-        if str(number) == currentString:
-            currentString = "Bang"
+        if specialList == "":
+            specialList = ["Bang"]
         else:
-            currentString = currentString + "Bang"
-    print(currentString)
+            specialList.append("Bang")
+    if number % 11 == 0:
+        currentString = "Bong"
+    if number % 13 == 0:
+        specialList.insert(0, "Fezz")
+    if (number % 17 == 0) & (specialList != ""):
+        specialList.reverse()
+    if specialList == "":
+        print(number)
+    else:
+        print(specialList)
