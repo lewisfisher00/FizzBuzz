@@ -1,5 +1,5 @@
 maxValue = int(input("Enter maximum value:"))
-for number in range(195, maxValue + 1):
+for number in range(1, maxValue + 1):
     specialList = []
     if (number % 5 == 0) & (number % 3 == 0):
         specialList.append("Fizz")
@@ -17,6 +17,7 @@ for number in range(195, maxValue + 1):
         currentString = "Bong"
     if number % 13 == 0:
         counter = int(0)
+        indexB = 0
         while counter < len(specialList):
             if specialList[counter][0] == "B":
                 indexB = int(counter)
@@ -26,7 +27,7 @@ for number in range(195, maxValue + 1):
         specialList.insert(indexB, "Fezz")
     if (number % 17 == 0) & (specialList != ""):
         specialList.reverse()
-    if specialList == "":
+    if len(specialList) == 0:
         print(number)
     else:
-        print(specialList)
+        print("".join(specialList))
